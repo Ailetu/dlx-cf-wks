@@ -1,13 +1,13 @@
 export default {
     async fetch(request, env, ctx) {
         const url = new URL(request.url);
-        const proxyUrl = url.pathname.replace('/', '');
+        let proxyUrl = url.pathname.replace('/', '');
 
         try {
-            let givenUrl = new URL(proxyUrl)
+            proxyUrl = new URL(proxyUrl)
         } catch(error) {
             console.log('error is', error)
-            return new Response('Bad request: Missing url', { status: 404 })
+            return new Response('Bad request: Missing proxy url', { status: 404 })
         }
 
         const req = new Request(proxyUrl, {
