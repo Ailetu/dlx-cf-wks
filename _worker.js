@@ -7,7 +7,7 @@ export default {
             proxyUrl = new URL(proxyUrl)
         } catch(error) {
             console.log('error is', error)
-            return new Response('Bad request: Missing proxy url', { status: 404 })
+            return new Response('Bad request: Missing proxy url', { status: 404 });
         }
 
         const req = new Request(proxyUrl, {
